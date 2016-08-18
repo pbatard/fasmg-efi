@@ -1,3 +1,8 @@
+;
+; Modified from http://x86asm.net/articles/uefi-programming-first-steps/
+; Copyright © 2016 Pete Batard <pete@akeo.ie> - Public Domain
+;
+
 ;for 32/64 portability and automatic natural align in structure definitions
 
 struc int8

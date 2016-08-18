@@ -1,3 +1,8 @@
+;
+; Modified from http://x86asm.net/articles/uefi-programming-first-steps/
+; Copyright © 2016 Pete Batard <pete@akeo.ie> - Public Domain
+;
+
 include 'x64.inc'
 include 'efi.inc'
 include 'format/format.inc'
