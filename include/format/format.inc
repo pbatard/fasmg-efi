@@ -62,6 +62,9 @@ macro format? clause
 			else match =on? stub :, seq
 				PE.Settings.Stub = stub
 				break
+			else match =EFI? more, seq
+				PE.Settings.Subsystem = IMAGE_SUBSYSTEM_EFI_APPLICATION
+				redefine seq more
 			else
 				err 'invalid argument'
 				break
@@ -132,6 +135,9 @@ macro format? clause
 			else match =on? stub :, seq
 				PE.Settings.Stub = stub
 				break
+			else match =EFI? more, seq
+				PE.Settings.Subsystem = IMAGE_SUBSYSTEM_EFI_APPLICATION
+				redefine seq more
 			else
 				err 'invalid argument'
 				break
