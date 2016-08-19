@@ -1,6 +1,6 @@
 @echo off
 set include=include
-del /q hello.efi
+del /q efi64.efi >NUL 2>&1
 fasmg efi64.asm efi64.efi
 if %errorlevel% neq 0 goto end
 
@@ -16,5 +16,5 @@ set OVMF_BIOS="OVMF.fd"
 if not exist image\efi\boot mkdir image\efi\boot
 copy efi64.efi image\efi\boot\boot%UEFI_EXT%.efi >NUL
 "%QEMU_PATH%%QEMU_EXE%" %QEMU_OPTS% -L . -bios %OVMF_BIOS% -hda fat:image
-del /q trace-*
+del /q trace-* >NUL 2>&1
 :end
