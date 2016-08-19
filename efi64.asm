@@ -4,6 +4,7 @@
 ;
 
 include 'x64.inc'
+include 'utf8.inc'
 include 'efi.inc'
 include 'format/format.inc'
 
@@ -53,9 +54,13 @@ wait_for_key:
 	retn
 
 section '.data' data readable writeable
-	Handle      dq ?
-	SystemTable dq ?
-	InputKey    dq ?
-	Hello       dw 13,10,'H','e','l','l','o',' ','E','F','I',' ','W','o','r','l','d','!',13,10,0
+	Handle		dq ?
+	SystemTable	dq ?
+	InputKey	dq ?
+	Hello		dw 0x0D, 0x0A
+				du "Hello EFI World!"
+				dw 0x0D, 0x0A, 0x0D, 0x0A
+				du "Press any key to exit"
+				dw 0x0D, 0x0A, 0x00
 
 section '.reloc' fixups data discardable
