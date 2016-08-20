@@ -57,10 +57,10 @@ section '.data' data readable writeable
 	Handle		dq ?
 	SystemTable	dq ?
 	InputKey	dq ?
-	Hello		dw 0x0D, 0x0A
-				du "Hello EFI World!"
-				dw 0x0D, 0x0A, 0x0D, 0x0A
-				du "Press any key to exit"
-				dw 0x0D, 0x0A, 0x00
+	Hello		du 0x0D, 0x0A
+				du "Hello EFI World!", 0x0D, 0x0A
+				du 0x0D, 0x0A
+				du "Press any key to exit", 0x0D, 0x0A
+				du 0x00
 
 section '.reloc' fixups data discardable
