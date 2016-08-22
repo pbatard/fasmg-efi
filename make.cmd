@@ -2,8 +2,9 @@
 set include=include
 del /q efi64.efi >NUL 2>&1
 fasmg efi64.asm efi64.efi
-if %errorlevel% neq 0 goto end
+if not %errorlevel%==0 goto end
 
+if not [%1]==[qemu] goto end
 set UEFI_EXT=x64
 set QEMU_ARCH=x86_64
 
@@ -18,4 +19,5 @@ copy efi64.efi image\efi\boot\boot%UEFI_EXT%.efi >NUL
 if not exist %OVMF_BIOS% echo %OVMF_BIOS% is missing!
 "%QEMU_PATH%%QEMU_EXE%" %QEMU_OPTS% -L . -bios %OVMF_BIOS% -hda fat:image
 del /q trace-* >NUL 2>&1
+
 :end

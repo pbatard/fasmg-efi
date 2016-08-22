@@ -9,10 +9,12 @@ fasmg-efi - A simple UEFI sample in fasmg x86_64 assembly
   (NB: You can find QEMU Windows binaries [here](https://qemu.weilnetz.de/w64/))
 * git
 
-## Assembly and testing
+## Assembly and testing (on Windows)
 
 * Copy this content into the `examples\x86\` directory of fasmg
-* Edit `make.cmd` and set your qemu path
-* Download the [latest OVMF x64](http://www.tianocore.org/ovmf/) and
-  extract it into the `examples\x86\` directory
+* Make sure fasmg is in your path, or copy `fasmg.exe ` to the `examples\x86\`
+  directory
 * Run `make`
+* Additionally, you can download the [latest OVMF x64](http://www.tianocore.org/ovmf/)
+  and extract it into the `examples\x86\` directory, and run `make qemu`.
+  Note you may have to edit `make.cmd` to set your qemu directory.
